@@ -9,7 +9,7 @@ function Header(props) {
     {heading: "FAQ"},
     {heading: "Log In"}
   ]
-  const pageTitleContent = {"heading": "Flight Log"};
+  const pageTitleContent = {"heading": "Film Gallery"};
   const width = window.innerWidth;
 
   const pageTitle = <HeaderItem classProps="text-opacity-100" item={pageTitleContent}/>;
