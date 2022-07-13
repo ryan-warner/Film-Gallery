@@ -16,7 +16,7 @@ function Filmstrip(props) {
     const filmLabel = "KODAK PORTRA 400";
 
     const height = window.innerHeight;
-    const numPerforations = height / 16 / 2 * 1.2;
+    const numPerforations = height / 16 / 2 * 1.4;
 
     for (let i = 0; i < numPerforations; i++) {
         perforationsArray.push(<Perforations key={i} />);
