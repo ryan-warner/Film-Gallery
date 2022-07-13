@@ -1,6 +1,6 @@
 function Perforations(props) {
     return (
-        <div className="bg-white aspect-[4/3] rounded-[0.2rem] h-3"></div>
+        <div className="bg-white aspect-[3/4] rounded-[0.1rem] h-4 mx-1"></div>
     )
 }
 
