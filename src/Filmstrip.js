@@ -42,12 +42,26 @@ function Filmstrip(props) {
             );
     }
 
-    for (let i = 0; i < 6; i++) {
-        bottomLabelArray.push(
-            <div>
+    for (let i = 5; i > 0; i--) {
+        i % 2 === 0 ?
+            bottomLabelArray.push(
+                <div className="flex flex-col gap-1">
+                    <p className="-rotate-90 text-sm text-[rgba(215,192,143,255)]">{i}</p>
+                <div className="w-4 flex justify-center">
+                    <svg className="h-4 w-2">
+                        <path className="fill-[rgba(215,192,143,255)]" d="M4 0 L8 16 L0 16 Z" />
+                    </svg>
+                </div>
+                </div>
+            ) :
+            bottomLabelArray.push(
+                <div className="w-4 flex justify-center">
+                    <svg className="h-4 w-2">
+                        <path className="fill-[rgba(215,192,143,255)]" d="M4 0 L8 16 L0 16 Z" />
+                    </svg>
+                </div>
+            )
 
-            </div>
-        )
     }
 
     return (
@@ -62,9 +76,12 @@ function Filmstrip(props) {
                             {exposuresArray}
                         </div>
                     </div>
-                    <div>
+                    <div className="flex gap-1">
                         <div className="flex flex-col gap-4">
                             {exposuresArray}
+                        </div>
+                        <div className="flex flex-col justify-evenly">
+                            {bottomLabelArray} 
                         </div>
                     </div>
                 </div>
