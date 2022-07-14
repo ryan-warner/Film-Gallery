@@ -22,7 +22,7 @@ function Filmstrip(props) {
         perforationsArray.push(<Perforations key={i} />);
     }
 
-    for (let i = 0; i < 12; i++) {
+    for (let i = 0; i < 18; i++) {
         i % 2 === 0 ?
             topLabelArray.push(
                 <div className="w-full flex-1 flex justify-center overflow-hidden">
@@ -36,7 +36,7 @@ function Filmstrip(props) {
             );
     }
 
-    for (let i = 10; i > 0; i--) {
+    for (let i = 15; i > 0; i--) {
         i % 2 === 0 ?
             bottomLabelArray.push(
                 <div className="flex items-center gap-1">
@@ -63,7 +63,7 @@ function Filmstrip(props) {
     })
 
     return (
-            <div className="bg-[rgba(48,30,30,255)] w-[105%] -rotate-6 h-[18rem]">
+            <div className="bg-[rgba(48,30,30,0.975)] w-[105%] -rotate-6 h-[18rem] shadow-lg">
                 <div className="h-full flex flex-col justify-between gap-[6px]">
                     <div className="flex flex-col gap-[2px]">
                         <div className="flex justify-evenly">
