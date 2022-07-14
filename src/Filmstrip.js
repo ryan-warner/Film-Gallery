@@ -25,12 +25,12 @@ function Filmstrip(props) {
     for (let i = 0; i < 18; i++) {
         i % 2 === 0 ?
             topLabelArray.push(
-                <div className="w-full flex-1 flex justify-center overflow-hidden">
+                <div key={i} className="w-full flex-1 flex justify-center overflow-hidden">
                     <p className="text-sm font-semibold text-[rgba(215,192,143,255)] h-4 w-full text-center blur-[0.5px]" key={i}>{filmLabel}</p>
                 </div>
             ) :
             topLabelArray.push(
-                <div className="w-full flex-1 flex justify-center overflow-hidden">
+                <div key={i} className="w-full flex-1 flex justify-center overflow-hidden">
                     <p className="text-sm font-semibold text-[rgba(215,192,143,255)] h-4 w-full text-center blur-[0.5px]" key={i}>{exposureNum + Math.round(i/2)}</p>
                 </div>
             );
@@ -39,7 +39,7 @@ function Filmstrip(props) {
     for (let i = 15; i > 0; i--) {
         i % 2 === 0 ?
             bottomLabelArray.push(
-                <div className="flex items-center gap-1">
+                <div key={i} className="flex items-center gap-1">
                     <p className="text-sm font-semibold text-[rgba(215,192,143,255)] blur-[0.5px]">{Math.round(i/2) + 7}</p>
                 <div className="h-2 flex justify-center">
                     <svg className="h-2 w-4">
@@ -49,7 +49,7 @@ function Filmstrip(props) {
                 </div>
             ) :
             bottomLabelArray.push(
-                <div className="h-2 flex items-center justify-center">
+                <div key={i} className="h-2 flex items-center justify-center">
                     <svg className="h-2 w-4">
                         <path className="fill-[rgba(215,192,143,255)] blur-[0.5px]" d="M0 0 L16 4 L0 8 Z" />
                     </svg>
