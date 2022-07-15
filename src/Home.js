@@ -1,10 +1,8 @@
 import Filmstrip from "./Filmstrip";
-import Button from "./Button";
+//import Button from "./Button";
 import InternalButton from "./InternalButton";
-import { useAuth0 } from "@auth0/auth0-react";
 
 function Home() {
-    const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
 
     return (
         <div className="h-full w-full relative overflow-hidden bg-primaryColor">
@@ -14,11 +12,7 @@ function Home() {
                         <div className="bg-gradient-to-l from-pink-300 via-purple-300 to-indigo-400 bg-clip-text text-transparent text-7xl font-semibold align-middle min-w-fit w-min pb-2 drop-shadow-lg">
                             Welcome to Filmstrip
                         </div>
-                        {
-                            !isAuthenticated ? 
-                                <Button primaryButton={false} label="Log In" onClick={loginWithRedirect}/> :
-                                <Button primaryButton={false} label="Log Out" onClick={logout} options={{ returnTo: window.location.origin }}/>
-                        }
+                            <InternalButton to="/login" primaryButton={false} label="Log In"/> 
                     </div>
                     <div className="flex flex-col gap-2 text-2xl bg-transparent w-2/3">
                         <p>
@@ -32,15 +26,15 @@ function Home() {
                         </p>
                     </div>
                     <div className="flex gap-4 w-min">
-                        <Button primaryButton={true} label="Sign Up" onClick={() => console.log("hi")}/>
-                        <InternalButton to="/about" primaryButton={false} label="Learn More" onClick={() => console.log("hi")}/>
+                        <InternalButton to="/signup" primaryButton={true} label="Sign Up"/>
+                        <InternalButton to="/about" primaryButton={false} label="Learn More"/>
                     </div>
                 </div>
             </div>
             <div className="absolute left-1/2 -translate-x-1/2 bottom-[10%] overflow-visible">
             <Filmstrip />
             </div>
-            <p className="my-4 mx-6 absolute bottom-0 right-0 font-semibold text-xl">{"Made with \u2764 by "} <span><a className="hover:underline " href="https://ryanwarner.app" target="_blank">Ryan Warner</a></span></p>
+            <p className="my-4 mx-6 absolute bottom-0 right-0 font-semibold text-xl">{"Made with \u2764 by "} <span><a className="hover:underline" rel="noreferrer" href="https://ryanwarner.app" target="_blank">Ryan Warner</a></span></p>
         </div>
     )
 }
