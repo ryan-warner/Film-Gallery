@@ -7,12 +7,12 @@ function Header(props) {
   const headerItems = [
     {heading: "About"},
     {heading: "FAQ"},
-    {heading: "Log In"}
+    {heading: "Sign Out"}
   ]
-  const pageTitleContent = {"heading": ""};
+  const pageTitleContent = {"heading": "Filmstrip"};
   const width = window.innerWidth;
 
-  const pageTitle = <HeaderItem classProps="text-opacity-100" item={pageTitleContent}/>;
+  const pageTitle = <HeaderItem disabled={true} classProps="text-opacity-100 bg-gradient-to-l from-pink-300 via-purple-300 to-indigo-400 bg-clip-text text-transparent" item={pageTitleContent}/>;
   var counter = 0
   
   headerItems.forEach(element => {

@@ -1,6 +1,7 @@
 import './index.css';
 import Home from "./Home";
 import About from "./About"
+import Portfolio from "./Portfolio";
 import UserHome from "./UserHome";
 import Authentication from "./Authentication";
 import LogIn from './LogIn';
@@ -17,6 +18,7 @@ function App() {
         <Route path="/user" element={<UserHome />}/>
         <Route path="/login" element={<Authentication content={<LogIn />} />}/>
         <Route path="/signup" element={<Authentication content={<SignUp />} />}/>
+        <Route path="/portfolio" element={<Portfolio />}/>
       </Routes>
     </div>
   );

@@ -1,7 +1,12 @@
 function HeaderItem(props) {
     return (
     <div>
-        <button className={props.classProps + " text-black text-md font-light"} onClick={props.click}><p>{props.item.heading}</p></button>
+        <button 
+            disabled={props.disabled ? true : false} 
+            className={props.classProps + " text-md font-light"} 
+            onClick={props.click}>
+                <p>{props.item.heading}</p>
+            </button>
     </div>
     );
 }
