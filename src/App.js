@@ -6,7 +6,8 @@ import UserHome from "./UserHome";
 import Authentication from "./Authentication";
 import LogIn from './LogIn';
 import SignUp from "./SignUp";
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
+import ProtectedRoute from "./ProtectedRoute";
 
 function App() {
 
@@ -18,7 +19,13 @@ function App() {
         <Route path="/user" element={<UserHome />}/>
         <Route path="/login" element={<Authentication content={<LogIn />} />}/>
         <Route path="/signup" element={<Authentication content={<SignUp />} />}/>
-        <Route path="/portfolio" element={<Portfolio />}/>
+        <Route path="/portfolio" 
+          element={
+            <ProtectedRoute>
+              <Portfolio />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </div>
   );
