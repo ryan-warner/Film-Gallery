@@ -9,12 +9,13 @@ function AuthProvider(props) {
     const login = (username, password) => {
         const content = {"userIdentifier": username, "password": password};
         const response = fetch(
-            "http://127.0.0.1:5000/api/v1/auth/login", 
+            "/api/v1/auth/login", 
             {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json; charset=utf-8',
-                    'Access-Control-Allow-Origin': 'http://localhost:3000',
+                    "Access-Control-Allow-Origin": "*"
+                    //"Access-Control-Allow-Origin": "http://192.168.1.240:3000"
                 },
                 method: "POST",
                 mode: "cors",
@@ -24,9 +25,8 @@ function AuthProvider(props) {
         response.then(response => {if (response.status !== 200) {response.reject("Problem with the request")} else {return response.json()}})
         .then(body => {
             localStorage.setItem("filmstripToken", body.token);
-            
             console.log(localStorage.getItem("filmstripToken"));
-            navigate("/portfolio");
+            navigate("/library");
         })
     }
     const register = () => {console.log("register")}
@@ -35,10 +35,11 @@ function AuthProvider(props) {
         const result = async () =>  { 
             try {
                 const response = await fetch(
-                    "http://127.0.0.1:5000/api/v1/auth/verify",
+                    "/api/v1/auth/verify",
                     {
                         headers: {
-                            "Access-Control-Allow-Origin": "http://localhost:3000",
+                            "Access-Control-Allow-Origin": "*",
+                            //"Access-Control-Allow-Origin": "http://localhost:3000",
                             'Accept': 'application/json',
                             'Content-Type': 'application/json; charset=utf-8',
                             "Authorization": "Bearer " + token

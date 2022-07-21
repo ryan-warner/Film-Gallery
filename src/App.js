@@ -1,8 +1,7 @@
 import './index.css';
 import Home from "./Home";
 import About from "./About"
-import Portfolio from "./Portfolio";
-import UserHome from "./UserHome";
+import Library from "./Library";
 import Authentication from "./Authentication";
 import LogIn from './LogIn';
 import SignUp from "./SignUp";
@@ -16,13 +15,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/about" element={<About />}/>
-        <Route path="/user" element={<UserHome />}/>
         <Route path="/login" element={<Authentication content={<LogIn />} />}/>
         <Route path="/signup" element={<Authentication content={<SignUp />} />}/>
-        <Route path="/portfolio" 
+        <Route path="/library" 
           element={
             <ProtectedRoute>
-              <Portfolio />
+              <Library />
             </ProtectedRoute>
           }
         />

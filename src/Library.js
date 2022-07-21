@@ -3,7 +3,7 @@ import PortfolioHeader from "./PortfolioHeader";
 import SideBar from "./SideBar"
 import { useState } from "react";
 
-function Portfolio(props) {
+function Library(props) {
     const [selectedAlbum, setSelectedAlbum] = useState("My Library")
 
     return (
@@ -22,4 +22,4 @@ function Portfolio(props) {
     )
 }
 
-export default Portfolio;
+export default Library;
