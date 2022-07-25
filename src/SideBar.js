@@ -12,11 +12,11 @@ function SideBar(props) {
     return (
         <div className="flex flex-col w-1/6 h-full">
             <div className="flex flex-col gap-1 text-xl text-left pb-4">
-                <div className={(props.selectedAlbum === "My Library" ? "bg-gray-400" : "bg-transparent") + " flex gap-1 justify-start items-center rounded-md px-2 py-1"}>
+                <div className={(props.selectedAlbum === "My Library" ? "bg-gray-300" : "bg-transparent") + " flex gap-1 justify-start items-center rounded-md px-2 py-1"}>
                     <FilmIcon className="h-6 aspect-square" />
                     <button className="w-min min-w-fit" onClick={() => props.onClick("My Library")}>My Library</button>
                 </div>
-                <div className={(props.selectedAlbum === "Favorites" ? "bg-gray-400" : "bg-transparent") + " flex gap-1 justify-start items-center rounded-md px-2 py-1"}> 
+                <div className={(props.selectedAlbum === "Favorites" ? "bg-gray-300" : "bg-transparent") + " flex gap-1 justify-start items-center rounded-md px-2 py-1"}> 
                     <HeartIcon className="h-6 aspect-square" />
                     <button className="w-min min-w-fit" onClick={() => props.onClick("Favorites")}>Favorites</button>
                 </div>
