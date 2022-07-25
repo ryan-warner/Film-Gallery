@@ -8,29 +8,29 @@ function Library(props) {
     const [albums, setAlbums] = useState()
 
     useEffect(() => {
-        const result = async () => {
-            try {
-                const response = await fetch("/api/v1/albums", {
-                    headers: {
-                        "Access-Control-Allow-Origin": "*",
-                        "Content-Type": "application/json",
-                        "Accept": "application/json",
-                        "Authorization": "Bearer " + localStorage.getItem("filmstripToken")
-                    },
-                    method: "GET",
-                    mode: "cors"
-                })
-                if (response.ok) {
-                    console.log(response)
-                    return response
+        if (albums === undefined) {
+            const result = async () => {
+                try {
+                    const response = await fetch("/api/v1/albums", {
+                        headers: {
+                            "Access-Control-Allow-Origin": "*",
+                            "Content-Type": "application/json",
+                            "Accept": "application/json",
+                            "Authorization": "Bearer " + localStorage.getItem("filmstripToken")
+                        },
+                        method: "GET",
+                        mode: "cors"
+                    })
+                    if (response.ok) {
+                        return response
+                    }
+                } catch {
+                    return null;
                 }
-            } catch {
-                return null;
             }
-            console.log("Hi")
+            const albums = async () => result().then(response => {return response.json()}).then((body) => {setAlbums(body)})
+            albums()
         }
-        result();
-        console.log()
     })
 
     return (
@@ -39,7 +39,7 @@ function Library(props) {
                 selectedAlbum={selectedAlbum}
             />
             <div className="flex py-2 divide-x-2 gap-2">
-                <SideBar onClick={setSelectedAlbum}/>
+                <SideBar albums={albums} onClick={setSelectedAlbum}/>
                 <div className="grow">
                     <Album />
                 </div>
