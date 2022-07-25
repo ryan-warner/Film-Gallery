@@ -14,7 +14,11 @@ function AlbumItem(props) {
 
     return (
         <div className="w-full aspect-square flex items-center justify-center overflow-hidden">
-            <div className="w-full h-32 aspect-video shadow-xl bg-gradient-to-r from-purple-400 via-green-500 to-pink-500 rounded-xl duration-200 ease-in" ref={imageRef}></div>
+            {
+                props.thumbnail.type === "png" ? <img src={"data:image/png;base64," + props.thumbnail.image} className={(props.thumbnail.orientation === "portrait" ? "h-full": "w-full") + " rounded-xl duration-200 ease-in"} ref={imageRef}></img> : 
+                <img src={"data:image/jpeg;base64," + props.thumbnail.image} className={(props.thumbnail.orientation === "portrait" ? "h-full": "w-full") + " rounded-xl duration-200 ease-in"} ref={imageRef}></img>
+            }
+            
         </div>
     )
 }

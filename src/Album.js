@@ -5,18 +5,21 @@ import { useState } from "react";
 function Album(props) {
     const [albumExpanded, setAlbumExpanded] = useState(false);
 
-    const temp = [1,2,3,4,5,6,7,8,9,10]
+    const thumbnails = props.thumbnails
 
     function handleClick() {
         setAlbumExpanded(!albumExpanded)
     }
 
+    if (thumbnails === undefined) {
+        return <div></div>
+    }
 
     return (
         <div>
             <AlbumHeader setAlbumExpanded={handleClick} albumExpanded={albumExpanded} />
             <div className="grid grid-cols-4 gap-1">
-                {temp.map((index) => <AlbumItem key={index} albumExpanded={albumExpanded} /> )}
+                {thumbnails.map((thumbnail,index) => <AlbumItem thumbnail={thumbnail} key={index} albumExpanded={albumExpanded} /> )}
             </div>
         </div>
     )
