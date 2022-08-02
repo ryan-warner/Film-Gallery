@@ -38,13 +38,17 @@ function Library(props) {
         if (thumbnails === undefined) {
             const result = async () => {
                 try {
-                    const response = await fetch("/api/v1/photos", {
+                    const response = await fetch(
+                        "/api/v1/photos?" + new URLSearchParams({
+                            favorites: (selectedAlbum === "Favorites" ? true : false)
+                        }), {
                         headers: {
                             "Access-Control-Allow-Origin": "*",
                             "Content-Type": "application/json",
                             "Accept": "application/json",
                             "Authorization": "Bearer " + localStorage.getItem("filmstripToken")
                         },
+                        //body: {"favorites": true},
                         method: "GET",
                         mode: "cors"
                     })
@@ -60,13 +64,18 @@ function Library(props) {
         }
     })
 
+    function handleClick(album) {
+        setThumbnails(undefined)
+        setSelectedAlbum(album)
+    }
+
     return (
         <div className="py-6 px-8 bg-primaryColor h-full relative">
             <PortfolioHeader 
                 selectedAlbum={selectedAlbum}
             />
             <div className="flex py-2 divide-x-2 gap-2">
-                <SideBar albums={albums} selectedAlbum={selectedAlbum} onClick={setSelectedAlbum}/>
+                <SideBar albums={albums} selectedAlbum={selectedAlbum} onClick={handleClick}/>
                 <div className="grow">
                     <Album thumbnails={thumbnails} />
                 </div>
