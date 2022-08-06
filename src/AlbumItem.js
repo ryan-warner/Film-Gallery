@@ -55,10 +55,10 @@ function AlbumItem(props) {
         <div className="w-full aspect-square flex items-center justify-center overflow-hidden relative group">
             {
                 props.thumbnail.type === "png" ? 
-                    <img src={"data:image/png;base64," + props.thumbnail.image} className={(props.thumbnail.orientation === "portrait" ? "h-full": "w-full") + " rounded-xl" + (imageLoaded ? " duration-200 ease-in" : "duration-0")} ref={imageRef}></img>: 
-                    <img src={"data:image/jpeg;base64," + props.thumbnail.image} className={(props.thumbnail.orientation === "portrait" ? "h-full": "w-full") + " rounded-xl" + (imageLoaded ? " duration-200 ease-in" : "duration-0")} ref={imageRef}></img>
+                    <img src={"data:image/png;base64," + props.thumbnail.image} className={(props.thumbnail.orientation === "portrait" ? "h-full": "w-full") + " rounded-xl" + (imageLoaded ? " duration-200 ease-in" : " duration-0")} ref={imageRef}></img>: 
+                    <img src={"data:image/jpeg;base64," + props.thumbnail.image} className={(props.thumbnail.orientation === "portrait" ? "h-full": "w-full") + " rounded-xl" + (imageLoaded ? " duration-200 ease-in" : " duration-0")} ref={imageRef}></img>
             }
-            <div ref={buttonRef} className={"top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 w-full h-full duration-200 ease-in absolute"}>
+            <div ref={buttonRef} className={"top-1/2 -translate-x-1/2 left-1/2 -translate-y-1/2 w-full h-full absolute" + (imageLoaded ? " duration-200 ease-in" : " duration-0")}>
                 <button className="absolute h-5 m-2 aspect-square bottom-0 right-0"title={(props.thumbnail.favorite ? "Remove from Favorites" : "Add to Favorites")} onClick={() => handleFavorite()}>
                     <HeartIcon className={(isFavorite !== undefined ? (isFavorite ? "visible fill-white" : "invisible group-hover:visible fill-transparent") : (props.thumbnail.favorite ? "visible fill-white" : "invisible group-hover:visible fill-transparent")) + " h-5 aspect-square stroke-white"} />
                 </button>

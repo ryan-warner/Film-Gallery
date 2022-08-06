@@ -3,7 +3,7 @@ import AlbumItem from "./AlbumItem";
 import { useState } from "react";
 
 function Album(props) {
-    const [albumExpanded, setAlbumExpanded] = useState(true);
+    const [albumExpanded, setAlbumExpanded] = useState(false);
 
     const thumbnails = props.thumbnails
 
