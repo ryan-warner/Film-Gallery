@@ -48,7 +48,6 @@ function Library(props) {
                             "Accept": "application/json",
                             "Authorization": "Bearer " + localStorage.getItem("filmstripToken")
                         },
-                        //body: {"favorites": true},
                         method: "GET",
                         mode: "cors"
                     })
