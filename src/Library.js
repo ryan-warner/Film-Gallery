@@ -77,7 +77,7 @@ function Library(props) {
             <div className="flex py-2 divide-x-2 gap-2">
                 <SideBar albums={albums} selectedAlbum={selectedAlbum} onClick={handleClick}/>
                 <div className="grow">
-                    <Album thumbnails={thumbnails} />
+                    <Album selectedAlbum={selectedAlbum} thumbnails={thumbnails} />
                 </div>
             </div>
             

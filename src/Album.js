@@ -19,7 +19,7 @@ function Album(props) {
         <div>
             <AlbumHeader setAlbumExpanded={handleClick} albumExpanded={albumExpanded} />
             <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 gap-1">
-                {thumbnails.map((thumbnail,index) => <AlbumItem thumbnail={thumbnail} key={index} albumExpanded={albumExpanded} /> )}
+                {thumbnails.map((thumbnail,index) => <AlbumItem editFavorites={props.selectedAlbum !== "Favorites"} thumbnail={thumbnail} key={index} albumExpanded={albumExpanded} /> )}
             </div>
         </div>
     )
