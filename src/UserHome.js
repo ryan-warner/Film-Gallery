@@ -1,12 +1,16 @@
 import Album from "./Album"
 import PortfolioHeader from "./PortfolioHeader";
 import SideBar from "./SideBar"
-import { useState, useEffect  } from "react";
+import FileUpload from "./FileUpload";
+import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 
 function Library(props) {
     const [selectedAlbum, setSelectedAlbum] = useState({albumName: "My Library", albumID: null})
     const [albums, setAlbums] = useState()
     const [thumbnails, setThumbnails] = useState()
+    const [albumsNeedRefresh, setAlbumsNeedRefresh] = useState(false)
+    const [thumbnailsNeedRefresh, setThumbnailsNeedRefresh] = useState(false)
 
     useEffect(() => {
         if (albums === undefined) {
@@ -95,14 +99,17 @@ function Library(props) {
     }
 
     return (
-        <div className="py-6 px-8 bg-primaryColor h-full relative">
+        <div className="py-6 px-8 bg-primaryColor min-h-full w-full flex flex-col">
             <PortfolioHeader 
                 selectedAlbum={selectedAlbum.albumName}
             />
-            <div className="flex py-2 divide-x-2 gap-2">
+            <div className="flex py-2 divide-x-2 gap-6 grow">
                 <SideBar albums={albums} selectedAlbum={selectedAlbum} onClick={handleClick}/>
-                <div className="grow">
-                    <Album selectedAlbum={selectedAlbum} thumbnails={thumbnails} />
+                <div className="pl-6 flex-1">
+                    <Routes>
+                        <Route path="/" element={<Album selectedAlbum={selectedAlbum} thumbnails={thumbnails} />} />
+                        <Route path="/upload" element={<FileUpload />}/>
+                    </Routes>
                 </div>
             </div>
             
